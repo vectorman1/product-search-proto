@@ -1,4 +1,4 @@
-module github.com/vectorman1/product-search/proto
+module github.com/vectorman1/product-search-proto
 
 go 1.17
 
