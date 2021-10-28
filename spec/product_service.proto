@@ -1,0 +1,46 @@
+syntax = "proto3";
+package product_service;
+
+option go_package = "product_service/generated/product_service";
+
+
+message SearchRequest {
+  string Query = 1;
+  repeated string Fields = 2;
+  int32 PageSize = 3;
+}
+
+message SearchResponse {
+  repeated Product items = 1;
+}
+
+message Product {
+  string Category = 1;
+  string Subcategory = 2;
+  string Name = 3;
+  float CurrentPrice = 4;
+  float RawPrice = 5;
+  string Currency = 6;
+  int32 Discount = 7;
+  int32 LikesCount = 8;
+  bool IsNew = 9;
+  string Brand = 10;
+  string BrandUrl = 11;
+  repeated string CodCountry = 12;
+  string Variation0Color = 13;
+  string Variation1Color = 14;
+  string Variation0Thumbnail = 15;
+  string Variation0Image = 16;
+  string Variation1Thumbnail = 17;
+  string Variation1Image = 18;
+  string ImageUrl = 19;
+  string Url = 20;
+  int32 Id = 21;
+  string Model = 22;
+}
+
+
+service ProductService {
+  rpc Search(SearchRequest) returns (SearchResponse) {
+  }
+}
