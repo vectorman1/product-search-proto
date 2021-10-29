@@ -10,8 +10,19 @@ message SearchRequest {
   int32 PageSize = 3;
 }
 
+message BucketAggregation {
+  string Key = 1;
+  int32 Count = 2;
+}
+
 message SearchResponse {
   repeated Product items = 1;
+  float MinPrice = 2;
+  float MaxPrice = 3;
+  repeated BucketAggregation Categories = 4;
+  repeated BucketAggregation Subcategories = 5;
+  repeated BucketAggregation Colors = 6;
+  repeated BucketAggregation Discounts = 7;
 }
 
 message Product {
